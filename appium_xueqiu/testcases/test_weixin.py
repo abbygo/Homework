@@ -28,7 +28,7 @@ class TestWeixin:
 
     def teardown(self):
         pass
-        # self.driver.find_element(MobileBy.ID,"com.xueqiu.android:id/action_close").click()
+
 
     @pytest.mark.parametrize('name,phone',[('函数',random.randrange(18208120001,19999999999))])
     def test_addcontact(self,name,phone):
