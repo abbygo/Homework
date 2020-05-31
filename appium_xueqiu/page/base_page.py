@@ -53,17 +53,59 @@ class BasePage():
             raise e
 
 
-    def scroll_ele_and_click(self, text_content):
+    def finds(self,locator,value:str=None,index:int=0):
+        '''
+        查询多个元素
+        :param locator:
+        :param value:
+        :param index: 暂未使用此参数
+        :return:
+        '''
+        logging.info(locator)
+        logging.info(value)
+        try:
+
+            if isinstance(locator,tuple):
+                elements=self._driver.find_elements(*locator)
+            else:
+                elements=self._driver.find_elements(locator,value)
+            self._error_num=0
+            self._driver.implicitly_wait(10)
+            return elements
+        except Exception as e:
+            # 异常情况，需要调整等待时间，优化处理弹框的速度
+            self._driver.implicitly_wait(1)
+    #        判断异常处理的次数
+            if self._error_num>self._max_num:
+                raise e
+            self._error_num+=1
+            for ele in self._back_list:
+                logging.info(ele)
+                elelist=self._driver.find_elements(*ele)
+                if len(elelist)>0:
+                    elelist[0].click()
+    #               处理完毕弹框，再去查找目标元素
+                    return self.finds(locator,value)
+            # 这句代码是所有的黑名单都没有找到就会执行如下这句
+            raise e
+
+    def scroll_ele_and_click(self, text_content,click=True):
         '''
         滚动到某个元素，
+        :param click: 默认点击元素
         :param text_content: 元素的文本内容
         :return:
         '''
+        if click:
+            self._driver.find_element(MobileBy.ANDROID_UIAUTOMATOR,
 
-        self._driver.find_element(MobileBy.ANDROID_UIAUTOMATOR,
+                f'new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text("{text_content}").instance(0));'
+            ).click()
+        else:
+            return self._driver.find_element(MobileBy.ANDROID_UIAUTOMATOR,
 
-            f'new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text("{text_content}").instance(0));'
-        ).click()
+                                      f'new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().text("{text_content}").instance(0));'
+                                      )
     def find_and_get_text(self, locator, value: str = None):
         '''
         获取文本

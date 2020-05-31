@@ -1,6 +1,7 @@
 #abby
 from appium import webdriver
 
+from appium_xueqiu.common.constant import Constant
 from appium_xueqiu.page.base_page import BasePage
 from appium_xueqiu.page.main import Main
 
@@ -26,6 +27,7 @@ class App(BasePage):
                 "skipDeviceInitialization": "true"
             }
             self._driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', caps)
+            setattr(Constant,'driver',self._driver)
         else:
             self._driver.launch_app()
         self._driver.implicitly_wait(10)
@@ -40,8 +42,9 @@ class App(BasePage):
        停止app
     '''
     def stop(self):
+        if self._driver:
 
-        self._driver.quit()
+            self._driver.quit()
 
     '''
        进入主页

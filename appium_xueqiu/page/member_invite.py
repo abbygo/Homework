@@ -20,3 +20,8 @@ class MemberInvite(BasePage):
         time.sleep(1)
         return self.find_and_get_text(MobileBy.XPATH, "//*[@class='android.widget.Toast']")
 
+    def back_address_list(self):
+        # 回到通讯录页面
+        self.find(MobileBy.ID,'com.tencent.wework:id/gvg').click()
+        from appium_xueqiu.page.addresslist_page import AddressList
+        return AddressList(self._driver)

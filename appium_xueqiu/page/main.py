@@ -3,6 +3,7 @@ from appium.webdriver.common.mobileby import MobileBy
 
 from appium_xueqiu.page.addresslist_page import AddressList
 from appium_xueqiu.page.base_page import BasePage
+from appium_xueqiu.page.message_list import MessageList
 
 
 class Main(BasePage):
@@ -10,7 +11,8 @@ class Main(BasePage):
     进入消息页面
     '''
     def goto_message(self):
-        pass
+        self.find(MobileBy.XPATH, "//*[@text='消息']").click()
+        return MessageList(self._driver)
     '''
     进入通讯录
     '''

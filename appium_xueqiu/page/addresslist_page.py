@@ -2,6 +2,7 @@
 from appium.webdriver.common.mobileby import MobileBy
 
 from appium_xueqiu.page.base_page import BasePage
+from appium_xueqiu.page.member_info import MemberInfo
 from appium_xueqiu.page.member_invite import MemberInvite
 
 '''
@@ -17,3 +18,11 @@ class AddressList(BasePage):
         # self.find(MobileBy.XPATH,"//*[@text='添加成员']").click()
 
         return MemberInvite(self._driver)
+
+    def click_member(self):
+        # 点击成员
+        self.scroll_ele_and_click('企业通讯录',click=False)
+        el1 =self.find(MobileBy.XPATH,"//*[@text='企业通讯录']/..")
+        el1.click()
+        return MemberInfo(self._driver)
+

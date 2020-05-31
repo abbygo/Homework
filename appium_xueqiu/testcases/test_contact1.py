@@ -1,23 +1,36 @@
-#abby
+# abby
 import random
 
 import pytest
 
+from appium_xueqiu.common.constant import Constant
 from appium_xueqiu.page.app import App
+from appium_xueqiu.page.main import Main
+from appium_xueqiu.page.member_invite import MemberInvite
 
 
 class TestContact:
 
-    def setup(self):
-        self.app=App()
-        print(self.app)
-        self.main=self.app.start().main()
+    def setup_class(self):
+        self.app = App()
 
-    def teardown_class(self):
-       pass
+        self.main = self.app.start().main()
+        self.dirver = getattr(Constant, 'driver')
 
-    @pytest.mark.parametrize('name,phone', [('函数', random.randrange(18208120001, 19999999999))])
-    def test_addcontact(self,name,phone):
-        invitepage=self.main.goto_addresslist().add_member().\
+    def teardown(self):
+
+
+        #
+        Main(self.dirver).goto_message()
+
+    @pytest.mark.parametrize('name,phone', [('函数', random.randrange(18208120001, 19999999999)),('文章', random.randrange(17208120001, 17999999999))])
+    def test_addcontact(self, name, phone):
+
+        invitepage = self.main.goto_addresslist().add_member(). \
             addmember_by_manul().input_name(name).set_gender().inputphonenum(phone).click_save()
-        assert  '成功'  in invitepage.get_toast()
+        assert '成功' in invitepage.get_toast()
+        MemberInvite(self.dirver).back_address_list()
+
+    def test_delcotact(self):
+        self.main.goto_addresslist().click_member().\
+            goto_edit_member().click_edit_member().del_member()
