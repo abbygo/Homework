@@ -11,7 +11,7 @@ class App(BasePage):
     管理app
     '''
     '''
-    启动appp
+    启动appp，
     '''
     def start(self):
         if self._driver is None:
