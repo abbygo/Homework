@@ -1,6 +1,6 @@
 #abby
 from appium.webdriver.common.mobileby import MobileBy
-from appium_xueqiu.page.base_page import BasePage
+from appium_qiyeweixin.page.base_page import BasePage
 
 class EditMember(BasePage):
     def del_member(self):
@@ -10,5 +10,5 @@ class EditMember(BasePage):
         # 点击弹出框上的确认删除按钮
         el5 = self.find(MobileBy.ID, "com.tencent.wework:id/b_d")
         el5.click()
-        from appium_xueqiu.page.addresslist_page import AddressList
+        from appium_qiyeweixin.page.addresslist_page import AddressList
         return AddressList(self._driver)

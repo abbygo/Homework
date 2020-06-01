@@ -1,8 +1,8 @@
 #abby
 from appium.webdriver.common.mobileby import MobileBy
 
-from appium_xueqiu.page.base_page import BasePage
-from appium_xueqiu.page.contact_add import ContractAdd
+from appium_qiyeweixin.page.base_page import BasePage
+from appium_qiyeweixin.page.contact_add import ContractAdd
 
 '''
 添加成员方式列表页面
@@ -23,5 +23,5 @@ class MemberInvite(BasePage):
     def back_address_list(self):
         # 回到通讯录页面
         self.find(MobileBy.ID,'com.tencent.wework:id/gvg').click()
-        from appium_xueqiu.page.addresslist_page import AddressList
+        from appium_qiyeweixin.page.addresslist_page import AddressList
         return AddressList(self._driver)

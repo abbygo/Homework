@@ -1,9 +1,9 @@
 #abby
 from appium.webdriver.common.mobileby import MobileBy
 
-from appium_xueqiu.page.base_page import BasePage
-from appium_xueqiu.page.member_info import MemberInfo
-from appium_xueqiu.page.member_invite import MemberInvite
+from appium_qiyeweixin.page.base_page import BasePage
+from appium_qiyeweixin.page.member_info import MemberInfo
+from appium_qiyeweixin.page.member_invite import MemberInvite
 
 '''
 通讯录页面

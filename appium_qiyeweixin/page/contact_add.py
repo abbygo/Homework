@@ -1,7 +1,7 @@
 #abby
 from appium.webdriver.common.mobileby import MobileBy
 
-from appium_xueqiu.page.base_page import BasePage
+from appium_qiyeweixin.page.base_page import BasePage
 
 '''
 添加联系人页面
@@ -37,5 +37,5 @@ class ContractAdd(BasePage):
         #         点击保存
         self.find(MobileBy.ID, 'com.tencent.wework:id/gvy').click()
 
-        from appium_xueqiu.page.member_invite import MemberInvite
+        from appium_qiyeweixin.page.member_invite import MemberInvite
         return MemberInvite(self._driver)

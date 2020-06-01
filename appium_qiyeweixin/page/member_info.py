@@ -1,8 +1,8 @@
 #abby
 from appium.webdriver.common.mobileby import MobileBy
 
-from appium_xueqiu.page.base_page import BasePage
-from appium_xueqiu.page.set_memberinfo import SetMemberInfo
+from appium_qiyeweixin.page.base_page import BasePage
+from appium_qiyeweixin.page.set_memberinfo import SetMemberInfo
 
 
 class MemberInfo(BasePage):

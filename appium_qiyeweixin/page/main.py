@@ -1,9 +1,9 @@
 #abby
 from appium.webdriver.common.mobileby import MobileBy
 
-from appium_xueqiu.page.addresslist_page import AddressList
-from appium_xueqiu.page.base_page import BasePage
-from appium_xueqiu.page.message_list import MessageList
+from appium_qiyeweixin.page.addresslist_page import AddressList
+from appium_qiyeweixin.page.base_page import BasePage
+from appium_qiyeweixin.page.message_list import MessageList
 
 
 class Main(BasePage):

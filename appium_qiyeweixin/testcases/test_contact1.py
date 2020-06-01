@@ -3,10 +3,10 @@ import random
 
 import pytest
 
-from appium_xueqiu.common.constant import Constant
-from appium_xueqiu.page.app import App
-from appium_xueqiu.page.main import Main
-from appium_xueqiu.page.member_invite import MemberInvite
+from appium_qiyeweixin.common.constant import Constant
+from appium_qiyeweixin.page.app import App
+from appium_qiyeweixin.page.main import Main
+from appium_qiyeweixin.page.member_invite import MemberInvite
 
 
 class TestContact:

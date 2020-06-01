@@ -1,9 +1,9 @@
 #abby
 from appium import webdriver
 
-from appium_xueqiu.common.constant import Constant
-from appium_xueqiu.page.base_page import BasePage
-from appium_xueqiu.page.main import Main
+from appium_qiyeweixin.common.constant import Constant
+from appium_qiyeweixin.page.base_page import BasePage
+from appium_qiyeweixin.page.main import Main
 
 
 class App(BasePage):
