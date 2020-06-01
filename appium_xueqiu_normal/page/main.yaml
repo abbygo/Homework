@@ -1,0 +1,16 @@
+goto_market:
+ - by: xpath
+   locator: "//*[@resource-id='android:id/tabs']//*[@text='行情']"
+   action: click
+goto_xueqiu:
+ - by: xpath
+   locator: "//*[@resource-id='android:id/tabs']//*[@text='雪球']"
+   action: click
+goto_change:
+ - by: xpath
+   locator: "//*[@resource-id='android:id/tabs']//*[@text='交易']"
+   action: click
+goto_profile:
+ - by: xpath
+   locator: "//*[@resource-id='android:id/tabs']//*[@text='我的']"
+   action: click

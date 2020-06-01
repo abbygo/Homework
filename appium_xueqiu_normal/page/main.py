@@ -1,6 +1,9 @@
 #abby
+import os
+
 from appium.webdriver.common.mobileby import MobileBy
 
+from appium_xueqiu_normal.common.dir_config import page_path
 from appium_xueqiu_normal.page.base_page import BasePage
 from appium_xueqiu_normal.page.first_page import FirstPage
 from appium_xueqiu_normal.page.market import Market
@@ -11,7 +14,9 @@ class Main(BasePage):
     进入行情
     '''
     def goto_market(self):
-        self.find(MobileBy.XPATH, "//*[@resource-id='android:id/tabs']//*[@text='行情']").click()
+
+        # self.find(MobileBy.XPATH, "//*[@resource-id='android:id/tabs']//*[@text='行情']").click()
+        self.steps(os.path.join(page_path,'main.yaml'))
         return Market(self._driver)
     '''
     进入雪球

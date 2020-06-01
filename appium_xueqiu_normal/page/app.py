@@ -26,7 +26,7 @@ class App(BasePage):
                 "noReset": "true",
                 "skipServerInstallation":"true",
                 "skipDeviceInitialization": "true",
-                "newCommandTimeout":"80"
+                "newCommandTimeout":"180"
             }
             self._driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', caps)
             setattr(Constant,'driver',self._driver)

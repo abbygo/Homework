@@ -1,0 +1,37 @@
+#查询方法
+search:
+# 点击搜索按钮
+ - by: id
+   locator: "com.xueqiu.android:id/action_search"
+   action: click
+# 输入搜索内容
+ - by: id
+   locator: "com.xueqiu.android:id/search_input_text"
+   action: send
+   value: ${searchkey}
+#  点击搜索的下拉框
+ - by: xpath
+   locator: "//*[@text='${search_result}']"
+   action: click
+#   添加方法
+add:
+ - by: xpath
+   locator: "//*[@text='${search_result}']/../../..//*[@text='加自选']"
+   action: click
+
+#   是否选中
+is_choose:
+ - by: xpath
+   locator: "//*[@text='${search_result}']/../../..//*[@text='已添加']"
+   action: len > 0
+#   是否选中
+reset:
+ - by: xpath
+   locator: "//*[@text='${search_result}']/../../..//*[@text='已添加']"
+   action: click
+#   返回到行情页面
+back_market:
+ - by: id
+   locator: "com.xueqiu.android:id/action_close"
+   action: click
+
