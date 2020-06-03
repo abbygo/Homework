@@ -1,0 +1,5 @@
+#   点击注册按钮
+goto_add_member:
+ - by: link text
+   locator: '添加成员'
+   action: click

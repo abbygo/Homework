@@ -1,0 +1,5 @@
+#   点击注册按钮
+goto_register:
+ - by: css selector
+   locator: '.login_registerBar_link'
+   action: click

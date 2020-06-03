@@ -1,0 +1,61 @@
+#添加成员
+#输入姓名
+add_member:
+ - by: css selector
+   locator: '[id=username]'
+   action: send
+   value: ${username}
+#输入别名
+ - by: css selector
+   locator: '[id=memberAdd_english_name]'
+   action: send
+   value: ${memberAdd_english_name}
+#输入账号
+ - by: css selector
+   locator: '[id=memberAdd_acctid]'
+   action: send
+   value: ${memberAdd_acctid}
+#选择性别
+ - by: xpath
+   locator: "//*[text()='女']"
+   action: click
+#输入手机
+ - by: css selector
+   locator: '[id=memberAdd_phone]'
+   action: send
+   value: ${memberAdd_phone}
+#输入职务
+ - by: css selector
+   locator: '[id=memberAdd_title]'
+   action: send
+   value: ${memberAdd_title}
+#取消勾选发送通知邮件
+ - by: css selector
+   locator: '[name=sendInvite]'
+   action: click
+#取消勾选发送通知邮件
+ - by: xpath
+   locator: "(//a[contains(text(),'保存')])[last()]"
+   action: click
+#获取成员信息
+get_member:
+ - by: css selector
+   locator: '.member_colRight_memberTable_td:nth-child(2)'
+   action: EqAttributeValue
+   value: ${username}
+#删除成员信息
+delete_member:
+#  - 勾选成员前面的复选框
+ - by: xpath
+   locator: '//span[text()="${username}"]/../../td[1]'
+   action: click
+#  点击删除按钮
+ - by: css selector
+   locator: '.js_operationBar_footer > .js_delete:nth-child(5)'
+   action: click
+#  点击删除弹框确认按钮
+ - by: link text
+   locator: '确认'
+   action: click
+
+

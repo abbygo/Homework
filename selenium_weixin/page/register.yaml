@@ -1,0 +1,48 @@
+#   注册
+register:
+#  输入企业名称
+ - by: css selector
+   locator: '#corp_name'
+   action: send
+   value: ${corp_name}
+#  选择行业类型下拉框
+ - by: xpath
+   locator: '//*[text()="选择行业类型"]'
+   action: click
+#  选择具体行业1
+ - by: link text
+   locator: 'IT服务'
+   action: click
+#  选择具体行业2
+ - by: link text
+   locator: '其他'
+   action: click
+#  点击选择人员规模下拉框
+ - by: link text
+   locator: '选择人员规模'
+   action: click
+#  选择人员规模
+ - by: xpath
+   locator: "//div[@id='corp_scale_btn']/div/ul/li/a/span[2]"
+   action: click
+
+#  输入管理员姓名
+ - by: css selector
+   locator: '[id=manager_name]'
+   action: send
+   value: ${manager_name}
+#  输入管理员手机号
+ - by: css selector
+   locator: '[id=register_tel]'
+   action: send
+   value: ${register_tel}
+#  点击我同意协议
+ - by: css selector
+   locator: '[id=iagree]'
+   action: click
+
+
+
+
+
+
