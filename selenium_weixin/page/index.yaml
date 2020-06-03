@@ -1,0 +1,10 @@
+#点击登录按钮
+goto_login:
+ - by: css selector
+   locator: '.index_top_operation_loginBtn'
+   action: click
+#   点击注册按钮
+goto_register:
+ - by: css selector
+   locator: '.index_head_info_pCDownloadBtn'
+   action: click
