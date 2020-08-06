@@ -1,4 +1,6 @@
 #abby
+import os
+
 from appium import webdriver
 
 from appium_xueqiu_normal.common.constant import Constant
@@ -18,7 +20,6 @@ class App(BasePage):
         if self._driver is None:
             caps = {
                 "platformName": "Android",
-                "platformVersion": "6.0.1",
                 "deviceName": "Android Emulator",
                 "appPackage": "com.xueqiu.android",
                 "appActivity": ".view.WelcomeActivityAlias",
@@ -28,6 +29,9 @@ class App(BasePage):
                 "skipDeviceInitialization": "true",
                 "newCommandTimeout":"180"
             }
+            udid = os.getenv('UDID', None)
+            if udid != None:
+                caps['udid'] = udid
             self._driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', caps)
             setattr(Constant,'driver',self._driver)
         else:

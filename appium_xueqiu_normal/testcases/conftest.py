@@ -8,7 +8,7 @@ import time
 import pytest
 
 
-@pytest.fixture(scope='class',autouse=True)
+@pytest.fixture(scope='class')
 def record():
     # 切割成一个数组，3个命令
     now_time=time.strftime("%Y%m%d%H%M%S", time.localtime())

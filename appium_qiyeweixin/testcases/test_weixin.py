@@ -12,7 +12,7 @@ class TestWeixin:
 
         caps={
             "platformName": "Android",
-            "platformVersion": "7.1.2",
+            "platformVersion": "6.0.1",
             "deviceName": "Android Emulator",
             "appPackage": "com.tencent.wework",
             "appActivity": ".launch.WwMainActivity",

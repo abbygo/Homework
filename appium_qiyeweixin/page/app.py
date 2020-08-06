@@ -1,4 +1,6 @@
 #abby
+import os
+
 from appium import webdriver
 
 from appium_qiyeweixin.common.constant import Constant
@@ -17,7 +19,6 @@ class App(BasePage):
         if self._driver is None:
             caps = {
                 "platformName": "Android",
-                "platformVersion": "6.0.1",
                 "deviceName": "Android Emulator",
                 "appPackage": "com.tencent.wework",
                 "appActivity": ".launch.WwMainActivity",
@@ -26,6 +27,9 @@ class App(BasePage):
                 "skipServerInstallation":"true",
                 "skipDeviceInitialization": "true"
             }
+            udid=os.getenv('UDID',None)
+            if udid!=None:
+                caps['udid']=udid
             self._driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', caps)
             setattr(Constant,'driver',self._driver)
         else:

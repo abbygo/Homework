@@ -3,8 +3,6 @@ import os
 
 import pytest
 import yaml
-from appium import webdriver
-from appium.webdriver.common.mobileby import MobileBy
 
 from appium_xueqiu_normal.common.dir_config import data_dir
 from appium_xueqiu_normal.page.app import App
