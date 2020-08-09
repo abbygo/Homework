@@ -2,6 +2,7 @@
 import os
 
 from appium import webdriver
+from selenium.webdriver.common import utils
 
 from appium_xueqiu_normal.common.constant import Constant
 from appium_xueqiu_normal.page.base_page import BasePage
@@ -29,9 +30,12 @@ class App(BasePage):
                 "skipDeviceInitialization": "true",
                 "newCommandTimeout":"180"
             }
-            udid = os.getenv('UDID', None)
-            if udid != None:
-                caps['udid'] = udid
+
+            caps['udid'] = os.getenv('udid', None)
+            # forward 的端口会冲突
+            caps['systemPort']=utils.free_port()
+            caps['chromedriverPort']=utils.free_port()
+
             self._driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', caps)
             setattr(Constant,'driver',self._driver)
         else:

@@ -32,11 +32,6 @@ class Search(BasePage):
         '''
         self._params['search_result'] = search_result
         self.steps(os.path.join(page_path, 'search.yaml'))
-        # el5 = self.finds(MobileBy.XPATH, f"//*[@text='{search_result}']/../../..//*[@text='加自选']")
-        #
-        # if len(el5) > 0:
-        #
-        #     el5[0].click()
         return self
 
     def is_choose(self,search_result):
