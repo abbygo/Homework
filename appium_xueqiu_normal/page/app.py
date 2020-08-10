@@ -26,7 +26,7 @@ class App(BasePage):
                 "appActivity": ".view.WelcomeActivityAlias",
                 "autoGrantPermissions": "true",
                 "noReset": "true",
-                "skipServerInstallation":"true",
+                # "skipServerInstallation":"true",
                 "skipDeviceInitialization": "true",
                 "newCommandTimeout":"180"
             }
