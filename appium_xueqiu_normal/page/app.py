@@ -31,7 +31,7 @@ class App(BasePage):
                 "newCommandTimeout":"180"
             }
 
-            caps['udid'] = os.getenv('udid', None)
+            # caps['udid'] = os.getenv('udid', None)
             # forward 的端口会冲突
             caps['systemPort']=utils.free_port()
             caps['mjpegServerPort']=utils.free_port()
