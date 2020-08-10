@@ -34,8 +34,11 @@ class App(BasePage):
             caps['udid'] = os.getenv('udid', None)
             # forward 的端口会冲突
             caps['systemPort']=utils.free_port()
-            caps['chromedriverPort']=utils.free_port()
-
+            caps['mjpegServerPort']=utils.free_port()
+            # caps['chromedriverPort']=utils.free_port()
+            print('------------------------------')
+            print(caps['udid'] )
+            print(caps['systemPort'])
             self._driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', caps)
             setattr(Constant,'driver',self._driver)
         else:
