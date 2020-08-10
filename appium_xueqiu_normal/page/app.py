@@ -26,7 +26,7 @@ class App(BasePage):
                 "appActivity": ".view.WelcomeActivityAlias",
                 "autoGrantPermissions": "true",
                 "noReset": "true",
-                # "skipServerInstallation":"true",
+                "skipServerInstallation":"true",
                 "skipDeviceInitialization": "true",
                 "newCommandTimeout":"180"
             }
@@ -35,29 +35,29 @@ class App(BasePage):
             # forward 的端口会冲突
             caps['systemPort']=utils.free_port()
             caps['mjpegServerPort']=utils.free_port()
-            # caps['chromedriverPort']=utils.free_port()
-            print('------------------------------')
-            print(caps['udid'] )
-            print(caps['systemPort'])
             self._driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', caps)
-            setattr(Constant,'driver',self._driver)
+            # setattr(Constant,'driver',self._driver)
         else:
             self._driver.launch_app()
         self._driver.implicitly_wait(10)
         return self
+
+    '''
+           停止app
+        '''
+
+    def stop(self):
+        # driver = getattr(Constant, 'driver')
+        #
+        # driver.quit()
+        pass
     '''
     重启app
     '''
     def restart(self):
         pass
 
-    '''
-       停止app
-    '''
-    def stop(self):
-        driver=getattr(Constant,'driver')
 
-        driver.quit()
 
     '''
        进入主页
