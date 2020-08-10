@@ -26,8 +26,8 @@ class App(BasePage):
                 "appActivity": ".view.WelcomeActivityAlias",
                 "autoGrantPermissions": "true",
                 "noReset": "true",
-                "skipServerInstallation":"true",
-                "skipDeviceInitialization": "true",
+                # "skipServerInstallation":"true",
+                # "skipDeviceInitialization": "true",
                 "newCommandTimeout":"180"
             }
 
@@ -36,7 +36,7 @@ class App(BasePage):
             caps['systemPort']=utils.free_port()
             caps['mjpegServerPort']=utils.free_port()
             self._driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', caps)
-            # setattr(Constant,'driver',self._driver)
+            setattr(Constant,'driver',self._driver)
         else:
             self._driver.launch_app()
         self._driver.implicitly_wait(10)
@@ -47,9 +47,9 @@ class App(BasePage):
         '''
 
     def stop(self):
-        # driver = getattr(Constant, 'driver')
+        driver = getattr(Constant, 'driver')
         #
-        # driver.quit()
+        driver.quit()
         pass
     '''
     重启app
