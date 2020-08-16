@@ -37,8 +37,8 @@ class CaseTable(db.Model):
     case_remarks = db.Column(db.String(120), unique=False, nullable=True)
     case_create_time = db.Column(db.DateTime, unique=False, nullable=True)
     case_update_time = db.Column(db.DateTime, unique=False, nullable=True)
-    case_other1 = db.Column(db.String(120), unique=False, nullable=True)
-    case_other2 = db.Column(db.String(120), unique=False, nullable=True)
+    case_preconditions = db.Column(db.Text, unique=False, nullable=True)
+    case_expected_results = db.Column(db.Text, unique=False, nullable=True)
     case_other3 = db.Column(db.String(120), unique=False, nullable=True)
 
     def __repr__(self):
