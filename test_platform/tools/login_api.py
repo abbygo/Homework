@@ -29,7 +29,6 @@ class CaseTable(db.Model):
     case_title = db.Column(db.String(180), unique=False, nullable=False)
     case_content = db.Column(db.Text, unique=False, nullable=True)
     case_module = db.Column(db.String(120), unique=False, nullable=True)
-    case_author = db.Column(db.String(120), unique=False, nullable=False)
     case_result = db.Column(db.Text, unique=False, nullable=True)
     case_project = db.Column(db.String(120), unique=False, nullable=True)
     case_executor = db.Column(db.String(120), unique=False, nullable=True)
@@ -40,6 +39,13 @@ class CaseTable(db.Model):
     case_preconditions = db.Column(db.Text, unique=False, nullable=True)
     case_expected_results = db.Column(db.Text, unique=False, nullable=True)
     case_other3 = db.Column(db.String(120), unique=False, nullable=True)
+    # # 设置外键关联
+    # uid = db.Column(db.Integer, db.ForeignKey('User.id'),
+    #                 nullable=False)
+    # # todo
+    # # 确定关联关系
+    # user = db.relationship('User',
+    #                        backref=db.backref('testcases', lazy=True))
 
     def __repr__(self):
         return '<CaseTable %r>' % self.case_title
@@ -149,14 +155,15 @@ class TestCase(Resource):
     def put(self):
 
         id = request.form['id']
-        case_title = request.form['case_title']
-        case_content = request.form['case_content']
-        casetable = CaseTable.query.filter_by(id=id).update({'case_title': case_title,'case_content':case_content})
+        update_content=dict(request.form)
+        update_content.pop('id')
+        casetable = CaseTable.query.filter_by(id=id).update(update_content)
         if not casetable:
             return {
                 'data': casetable,
                 'errcode': 1
             }
+
         else:
             db.session.commit()
             return {
